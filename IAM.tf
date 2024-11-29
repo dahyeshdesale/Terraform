@@ -8,7 +8,7 @@ provider "aws" {
  # lower = true
   #number = true
  # special = true
-}
+#}
 
 # Create IAM User
 resource "aws_iam_user" "dreamdesale" {
@@ -19,7 +19,7 @@ resource "aws_iam_user" "dreamdesale" {
 # Console Login
 resource "aws_iam_user_login_profile" "terraformlogin" {
   user = aws_iam_user.dreamdesale.name
-  #password = random_password.random_pas.result
+  password = var.iam_user_passwordg
   password_reset_required = false
 }
 
