@@ -2,12 +2,12 @@ provider "aws" {
   region = "ap-south-1"
 }
 
-resource "random_password" "random_pas" {
-  length = 12
-  upper = true
-  lower = true
-  number = true
-  special = true
+#resource "random_password" "random_pas" {
+ # length = 12
+ # upper = true
+ # lower = true
+  #number = true
+ # special = true
 }
 
 # Create IAM User
@@ -19,7 +19,7 @@ resource "aws_iam_user" "dreamdesale" {
 # Console Login
 resource "aws_iam_user_login_profile" "terraformlogin" {
   user = aws_iam_user.dreamdesale.name
-  password = random_password.random_pas.result
+  #password = random_password.random_pas.result
   password_reset_required = false
 }
 
