@@ -8,6 +8,7 @@ output "secret_key" {
 }
 
 output "custom_password" {
-  value     = var.iam_user_password
+  value     = aws_iam_user_login_profile.terraformlogin.password
   sensitive = true
 } 
+

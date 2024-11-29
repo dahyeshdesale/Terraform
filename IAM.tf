@@ -19,7 +19,6 @@ resource "aws_iam_user" "dreamdesale" {
 # Console Login
 resource "aws_iam_user_login_profile" "terraformlogin" {
   user = aws_iam_user.dreamdesale.name
-  password = var.iam_user_password
   password_reset_required = false
 }
 
