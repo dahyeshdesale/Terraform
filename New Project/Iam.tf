@@ -20,3 +20,12 @@ resource "aws_iam_user_login_profile" "dahyesh_login" {
   user = aws_iam_user.dahyesh_user.name
   password_reset_required = true
 }
+
+resource "local_file" "info_user_login" {
+  content = <<EOF
+  username: ${aws_iam_user.dahyesh_user.name}
+  password: ${aws_iam_user_login_profile.dahyesh_login.password}
+  EOF
+  filename = "${path.module}/info_user_login.txt"
+
+}
