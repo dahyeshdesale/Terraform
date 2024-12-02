@@ -27,9 +27,10 @@ data "aws_caller_identity" "current" {
 
 resource "local_file" "info_user_login" {
   content = <<EOF
-  console_id: ${output.console_signin_url.value}
+ 
   username: ${aws_iam_user.dahyesh_user.name}
   password: ${aws_iam_user_login_profile.dahyesh_login.password}
+  console_id: ${output.console_signin_url.value}
   EOF
   filename = "${path.module}/info_user_login.txt"
 
