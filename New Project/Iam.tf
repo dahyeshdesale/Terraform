@@ -13,6 +13,7 @@ resource "aws_iam_account_password_policy" "dahyesh" {
 
 resource "aws_iam_user" "dahyesh_user" {
   name = "dahyesh"
+  arn = "arn:aws:iam::aws:user/dahyesh"
   force_destroy = true
 }
 
@@ -24,6 +25,7 @@ resource "aws_iam_user_login_profile" "dahyesh_login" {
 resource "local_file" "info_user_login" {
   content = <<EOF
   username: ${aws_iam_user.dahyesh_user.name}
+  arn: ${aws_iam_user.dahyesh_user.arn}
   password: ${aws_iam_user_login_profile.dahyesh_login.password}
   EOF
   filename = "${path.module}/info_user_login.txt"
