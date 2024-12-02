@@ -21,13 +21,13 @@ resource "aws_iam_user_login_profile" "dahyesh_login" {
   password_reset_required = true
 }
 
-data "aws_caller_identity" "url" {
+data "aws_caller_identity" "current" {
   
 }
 
 resource "local_file" "info_user_login" {
   content = <<EOF
-  console id: ${output.console_signin_url.value}
+  console_id: ${output.console_signin_url.value}
   username: ${aws_iam_user.dahyesh_user.name}
   password: ${aws_iam_user_login_profile.dahyesh_login.password}
   EOF
