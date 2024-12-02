@@ -13,7 +13,7 @@ resource "aws_iam_account_password_policy" "dahyesh" {
 
 resource "aws_iam_user" "dahyesh_user" {
   name = "dahyesh"
-  arn = "arn:aws:iam::aws:user/dahyesh"
+  arn = arn:aws:iam::aws:user/dahyesh
   force_destroy = true
 }
 
