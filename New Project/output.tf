@@ -1,7 +1,7 @@
-#output "aws_iam_account_password_policy" {
-  #value = aws_iam_account_password_policy.dahyesh
-  #sensitive = false
-#}
+output "aws_iam_account_password_policy" {
+  value = aws_iam_account_password_policy.dahyesh
+  sensitive = true
+}
 
 output "aws_iam_user" {
   value = aws_iam_user.dahyesh_user
