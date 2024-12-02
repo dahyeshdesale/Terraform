@@ -39,8 +39,8 @@ resource "local_file" "info_user_login" {
   username: ${aws_iam_user.dahyesh_user.name}
   password: ${aws_iam_user_login_profile.dahyesh_login.password}
   console_signin_url: https://${data.aws_caller_identity.current.account_id}.signin.aws.amazon.com/console
-  access key id: ${aws_iam_access_key.dahyesh_user.id}
-  secret access key: ${aws_iam_access_key.dahyesh_user.secret}
+  access key id: ${aws_iam_access_key.CLI.id}
+  secret access key: ${aws_iam_access_key.CLI.secret}
   EOF
   filename = "${path.module}/info_user_login.txt"
 
