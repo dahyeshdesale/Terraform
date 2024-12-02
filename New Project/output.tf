@@ -10,3 +10,7 @@ output "aws_iam_user_login_profile" {
   value = aws_iam_user_login_profile.dahyesh_login
   sensitive = true
 }
+
+output "console_signin_url" {
+  value = "https://${data.aws_caller_identity.current.account_id}.signin.aws.amazon.com/console"
+}

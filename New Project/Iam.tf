@@ -13,7 +13,6 @@ resource "aws_iam_account_password_policy" "dahyesh" {
 
 resource "aws_iam_user" "dahyesh_user" {
   name = "dahyesh"
-  arn = arn:aws:iam::aws:user/dahyesh
   force_destroy = true
 }
 
@@ -22,10 +21,14 @@ resource "aws_iam_user_login_profile" "dahyesh_login" {
   password_reset_required = true
 }
 
+data "aws_caller_identity" "url" {
+  
+}
+
 resource "local_file" "info_user_login" {
   content = <<EOF
+  console id: ${output.console_signin_url.value}
   username: ${aws_iam_user.dahyesh_user.name}
-  arn: ${aws_iam_user.dahyesh_user.arn}
   password: ${aws_iam_user_login_profile.dahyesh_login.password}
   EOF
   filename = "${path.module}/info_user_login.txt"
