@@ -22,14 +22,25 @@ resource "aws_iam_user_login_profile" "dahyesh_login" {
 }
 
 data "aws_caller_identity" "current" {
-  
+
 }
 
+resource "aws_iam_access_key" "CLI" {
+  user = aws_iam_user.dahyesh_user.name
+
+}
+
+resource "aws_iam_user_policy_attachment" "S3_full_access" {
+  user = aws_iam_user.dahyesh_user.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
 resource "local_file" "info_user_login" {
   content = <<EOF
   username: ${aws_iam_user.dahyesh_user.name}
   password: ${aws_iam_user_login_profile.dahyesh_login.password}
   console_signin_url: https://${data.aws_caller_identity.current.account_id}.signin.aws.amazon.com/console
+    access key id: ${aws_iam_access_key.dahyesh_user.id}
+  secret access key: ${aws_iam_access_key.dahyesh_user.secret}
   EOF
   filename = "${path.module}/info_user_login.txt"
 
