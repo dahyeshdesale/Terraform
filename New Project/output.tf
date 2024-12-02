@@ -1,5 +1,6 @@
 output "aws_iam_account_password_policy" {
   value = aws_iam_account_password_policy.dahyesh
+  sensitive = false
 }
 
 output "aws_iam_user" {
