@@ -29,7 +29,7 @@ resource "local_file" "info_user_login" {
   content = <<EOF
   username: ${aws_iam_user.dahyesh_user.name}
   password: ${aws_iam_user_login_profile.dahyesh_login.password}
-  console_id: ${aws_caller_identity.current.value}
+  console_signin_url: ${output.console_signin_url.value}
   EOF
   filename = "${path.module}/info_user_login.txt"
 
