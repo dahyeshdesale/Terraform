@@ -18,7 +18,6 @@ resource "aws_iam_user" "dahyesh_user" {
 
 resource "aws_iam_user_login_profile" "dahyesh_login" {
   user = aws_iam_user.dahyesh_user.name
-  password = "Dahyesh@1199"
   password_reset_required = true
 }
 
