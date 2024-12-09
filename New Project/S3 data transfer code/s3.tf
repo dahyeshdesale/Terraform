@@ -25,4 +25,3 @@ resource "aws_s3_bucket_versioning" "versioning_configuration_destination" {
     status = "Enabled"
   }
 }
-
