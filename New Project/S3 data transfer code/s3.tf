@@ -5,18 +5,12 @@ provider "aws" {
 resource "aws_s3_bucket" "source_bucket" {
   bucket = "dahyeshdesaledatasource"
   acl = "public-read"
-  versioning {
-   enabled = true 
-  }
   force_destroy = true
 }
 
 resource "aws_s3_bucket" "destination_bucket" {
   bucket = "dsahyeshdesaledatadestination"
   acl = "public-read"
-  versioning {
-    enabled = true
-  }
   force_destroy = true
 }
 
