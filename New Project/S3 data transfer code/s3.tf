@@ -4,8 +4,12 @@ provider "aws" {
 
 resource "aws_s3_bucket" "source_bucket" {
   bucket = "dahyeshdesaledatasource"
-  acl = "public-read"
   force_destroy = true
+}
+
+resource "aws_s3_bucket_acl" "source_acl" {
+  bucket = aws_s3_bucket.source_bucket.id
+  acl = "public-read"
 }
 
 resource "aws_s3_bucket_versioning" "versioning_configuration_source" {
@@ -17,8 +21,12 @@ resource "aws_s3_bucket_versioning" "versioning_configuration_source" {
 
 resource "aws_s3_bucket" "destination_bucket" {
   bucket = "dsahyeshdesaledatadestination"
-  acl = "public-read"
   force_destroy = true
+}
+
+resource "aws_s3_bucket_acl" "destination_acl" {
+  bucket = aws_s3_bucket.destination_bucket.id
+  acl = "public-read"
 }
 
 resource "aws_s3_bucket_versioning" "versioning_configuration_destination" {
