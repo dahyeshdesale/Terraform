@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "source_bucket" {
 
 resource "aws_s3_bucket_acl" "source_acl" {
   bucket = aws_s3_bucket.source_bucket.id
-  acl = "public"
+  acl = "private"
 }
 
 resource "aws_s3_bucket_versioning" "versioning_configuration_source" {
@@ -26,7 +26,7 @@ resource "aws_s3_bucket" "destination_bucket" {
 
 resource "aws_s3_bucket_acl" "destination_acl" {
   bucket = aws_s3_bucket.destination_bucket.id
-  acl = "public"
+  acl = "private"
 }
 
 resource "aws_s3_bucket_versioning" "versioning_configuration_destination" {
