@@ -17,7 +17,7 @@ resource "aws_s3_bucket_versioning" "versioning_configuration_source" {
 resource "aws_s3_bucket_ownership_controls" "source_bucket" {
   bucket = aws_s3_bucket.source_bucket.id
   rule {
-    object_ownership = "BucketOwerPreferred"
+    object_ownership = "BucketOwnerPreferred"
   }
 }
 
@@ -55,7 +55,7 @@ resource "aws_s3_bucket_versioning" "versioning_configuration_destination" {
 resource "aws_s3_bucket_ownership_controls" "destination_bucket" {
   bucket = aws_s3_bucket.destination_bucket.id
   rule {
-    object_ownership = "BucketOwerPreferred"
+    object_ownership = "BucketOwnerPreferred"
   }
 }
 
