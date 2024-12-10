@@ -41,7 +41,7 @@ resource "aws_s3_bucket_acl" "source_bucket" {
 }
 
 resource "aws_s3_bucket" "destination_bucket" {
-  bucket = "dsahyeshdesaledatadestination"
+  bucket = var.secondbucket
   force_destroy = true
 }
 
